@@ -15,6 +15,7 @@ import { getServerEnv } from "#/server/env";
  */
 function buildDatabase() {
   const env = getServerEnv();
+  console.log("AUTH URL:", env.betterAuthUrl);
   if (env.databaseUrl !== undefined) {
     const client = postgres(env.databaseUrl, { max: 4, prepare: false });
     return drizzleAdapter(drizzle(client, { schema }), {
