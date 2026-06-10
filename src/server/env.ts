@@ -2,7 +2,7 @@
  * Server-side configuration. Reads environment variables once with safe
  * development defaults; production values come from Railway service variables.
  */
-
+console.log("ENV LOADING");
 const DEFAULT_TOURNAMENT_LOCK_AT = "2026-06-11T19:00:00Z";
 
 /** Development-only credentials. Never use in production. */
@@ -56,7 +56,6 @@ export function getServerEnv(): ServerEnv {
       ["ADMIN_EMAIL", adminEmailRaw],
       ["ADMIN_PASSWORD", adminPasswordRaw],
       ["BETTER_AUTH_SECRET", betterAuthSecretRaw],
-      ["BETTER_AUTH_URL", betterAuthUrl],
     ]
       .filter(([, value]) => value === undefined)
       .map(([name]) => name);

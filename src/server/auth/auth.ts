@@ -6,7 +6,7 @@ import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import * as schema from "#/server/db/schema";
 import { getServerEnv } from "#/server/env";
-
+console.log("HEALTH ROUTE HIT");
 /**
  * Better Auth instance for admin authentication. Railway production uses the
  * PostgreSQL-backed Drizzle adapter through DATABASE_URL; local development
@@ -15,6 +15,7 @@ import { getServerEnv } from "#/server/env";
  */
 function buildDatabase() {
   const env = getServerEnv();
+  
   console.log("AUTH URL:", env.betterAuthUrl);
   console.log("[AUTH CONFIG] baseURL =", env.betterAuthUrl);
   console.log("[AUTH CONFIG] database =", env.databaseUrl);
