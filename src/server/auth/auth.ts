@@ -37,7 +37,7 @@ const env = getServerEnv();
 export const auth = betterAuth({
   database: buildDatabase(),
   secret: env.betterAuthSecret,
-  ...(env.betterAuthUrl === undefined ? {} : { baseURL: env.betterAuthUrl }),
+  // TEMP DEBUG: disable baseURL...(env.betterAuthUrl === undefined ? {} : { baseURL: env.betterAuthUrl }),
   emailAndPassword: {
     enabled: true,
     // No self-service accounts exist in this product; the only user is the

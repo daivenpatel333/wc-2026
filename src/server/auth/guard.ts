@@ -14,7 +14,7 @@ export interface AdminSession {
  */
 export async function requireAdmin(headers: Headers): Promise<AdminSession> {
   await ensureAdminBootstrapped();
-  const session = await auth.api.getSession({ headers });
+  const session = await auth.getSession({ headers });
   if (session === null) {
     throw new AppError("UNAUTHORIZED", "Admin authentication required.", { status: 401 });
   }
